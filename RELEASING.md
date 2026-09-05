@@ -1,11 +1,14 @@
 # Releasing
 
-Order matters: npm first, because every registry entry points at the published package.
+Installs come straight from the tagged GitHub repo, so a release is a tag.
 
-## 1. npm
+## 1. Tag
 
     npm test                       # 12 cases, all must pass
-    npm publish --access public
+    git tag -a vX.Y.Z -m "vX.Y.Z"
+    git push origin vX.Y.Z
+
+The install line in the README pins that tag; bump it in the same commit.
 
 ## 2. Official MCP registry
 
@@ -26,4 +29,4 @@ namespace that owns this repo:
 ## Version bumps
 
 `package.json`, `server.json` and the install snippets in `README.md` all carry the version. Bump the
-three together, re-run the tests, then republish to npm and the registry.
+three together, re-run the tests, tag, then update the registry entry.
