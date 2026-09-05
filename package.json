@@ -1,6 +1,6 @@
 {
   "name": "aiops-field-notes-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Free MCP server for engineers running AI in production: price a model, size a GPU, audit your MCP config, and explain network config drift. No account, no telemetry.",
   "license": "MIT",
   "author": "James Son",

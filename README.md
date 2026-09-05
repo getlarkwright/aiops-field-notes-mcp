@@ -13,7 +13,7 @@ Pin the version — see `audit_mcp_config` for why.
 **Claude Code**
 
 ```
-claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes-mcp#v0.1.0
+claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes-mcp#v0.1.1
 ```
 
 **Claude Desktop, Cursor, or any client with a JSON config**
@@ -23,7 +23,7 @@ claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes
   "mcpServers": {
     "aiops-field-notes": {
       "command": "npx",
-      "args": ["-y", "github:labaccessnow/aiops-field-notes-mcp#v0.1.0"]
+      "args": ["-y", "github:labaccessnow/aiops-field-notes-mcp#v0.1.1"]
     }
   }
 }
@@ -36,7 +36,7 @@ claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes
   "mcpServers": {
     "aiops-field-notes": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "ghcr.io/labaccessnow/aiops-field-notes-mcp:0.1.0"]
+      "args": ["run", "-i", "--rm", "ghcr.io/labaccessnow/aiops-field-notes-mcp:0.1.1"]
     }
   }
 }

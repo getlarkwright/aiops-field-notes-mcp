@@ -9,6 +9,17 @@ import { diffArrays } from "diff";
 const VOLATILE = [
   /vyatta-config-version/, /Release version/, /Last configuration change/, /^! Last config/i,
   /ntp clock-period/, /^#\s*\w+ \d+ \d{2}:\d{2}:\d{2}/, /uptime/i, /\b\d+ packets, \d+ bytes\b/,
+  // OPNsense config.xml save bookkeeping. On a real fleet these three produced
+  // two thirds of one firewall's drift events, and most were rated high risk —
+  // alarming noise that buries the change you actually care about.
+  /^\s*<time>\d{9,}(?:\.\d+)?<\/time>\s*$/,
+  /^\s*<description>\/api\/[^<]*made changes<\/description>\s*$/,
+];
+
+// Volatile values inside a line that is otherwise real config: dropping the line
+// would look like the element was deleted, so mask the value and diff the rest.
+const VOLATILE_VALUES = [
+  [/(persisted_at=")[^"]*(")/g, "$1*$2"],
 ];
 
 const VENDOR_HINTS = [
@@ -26,7 +37,11 @@ export function detectVendor(text) {
 }
 
 const sanitize = (text) =>
-  text.split(/\r?\n/).map((l) => l.replace(/\s+$/, "")).filter((l) => !VOLATILE.some((p) => p.test(l)));
+  text
+    .split(/\r?\n/)
+    .map((l) => l.replace(/\s+$/, ""))
+    .filter((l) => !VOLATILE.some((p) => p.test(l)))
+    .map((l) => VOLATILE_VALUES.reduce((acc, [pat, repl]) => acc.replace(pat, repl), l));
 
 // Enclosing block for a changed line, for brace formats like EdgeOS config.boot.
 function sectionPath(lines, idx) {
