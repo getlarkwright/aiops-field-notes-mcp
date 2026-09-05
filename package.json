@@ -5,14 +5,39 @@
   "license": "MIT",
   "author": "James Son",
   "homepage": "https://aiopsfieldnotes.com/tools/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labaccessnow/aiops-field-notes-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/labaccessnow/aiops-field-notes-mcp/issues"
+  },
   "type": "module",
-  "bin": { "aiops-field-notes-mcp": "src/index.js" },
+  "bin": {
+    "aiops-field-notes-mcp": "src/index.js"
+  },
   "main": "src/index.js",
-  "files": ["src", "README.md", "LICENSE"],
-  "engines": { "node": ">=18" },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "keywords": [
-    "mcp", "model-context-protocol", "mcp-server", "llm-cost", "vram", "gpu",
-    "mcp-security", "config-drift", "network-automation", "aiops", "devops", "claude"
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "llm-cost",
+    "vram",
+    "gpu",
+    "mcp-security",
+    "config-drift",
+    "network-automation",
+    "aiops",
+    "devops",
+    "claude"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
