@@ -29,7 +29,21 @@ claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes
 }
 ```
 
-Node 18 or newer. Nothing else to configure.
+**Docker**
+
+```json
+{
+  "mcpServers": {
+    "aiops-field-notes": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "ghcr.io/labaccessnow/aiops-field-notes-mcp:0.1.0"]
+    }
+  }
+}
+```
+
+Node 18 or newer for the npx route; nothing else to configure either way. The server is also in the
+official MCP registry as `io.github.labaccessnow/aiops-field-notes-mcp`.
 
 ## Tools
 
