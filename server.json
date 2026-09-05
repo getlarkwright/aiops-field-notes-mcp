@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.labaccessnow/aiops-field-notes",
+  "title": "AIOps Field Notes",
+  "description": "Price an LLM workload, size a GPU, audit an MCP config for risky grants, and explain network config drift. Local, deterministic, no account.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/labaccessnow/aiops-field-notes-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://aiopsfieldnotes.com/tools/",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "aiops-field-notes-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

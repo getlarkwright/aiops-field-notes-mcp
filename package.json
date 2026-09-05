@@ -1,0 +1,25 @@
+{
+  "name": "aiops-field-notes-mcp",
+  "version": "0.1.0",
+  "description": "Free MCP server for engineers running AI in production: price a model, size a GPU, audit your MCP config, and explain network config drift. No account, no telemetry.",
+  "license": "MIT",
+  "author": "James Son",
+  "homepage": "https://aiopsfieldnotes.com/tools/",
+  "type": "module",
+  "bin": { "aiops-field-notes-mcp": "src/index.js" },
+  "main": "src/index.js",
+  "files": ["src", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "keywords": [
+    "mcp", "model-context-protocol", "mcp-server", "llm-cost", "vram", "gpu",
+    "mcp-security", "config-drift", "network-automation", "aiops", "devops", "claude"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "diff": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node test/smoke.mjs"
+  }
+}
