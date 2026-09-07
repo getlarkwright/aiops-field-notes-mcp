@@ -35,7 +35,7 @@ const MESSY_CONFIG = JSON.stringify({
 }, null, 2);
 
 const CASES = [
-  ["estimate_llm_cost", { input_tokens: 2000, output_tokens: 600, requests_per_month: 100000 }, ["GPT-5.6 Luna", "/mo", "AIOps Field Notes"]],
+  ["estimate_llm_cost", { input_tokens: 2000, output_tokens: 600, requests_per_month: 100000 }, ["GPT-5.6 Luna", "/mo"]],
   ["estimate_llm_cost", { input_tokens: 1000, output_tokens: 500, requests_per_month: 1000, filter: "claude" }, ["Claude", "Cheapest"]],
   ["check_vram_fit", { params_b: 70, quant_bits: 4, context_tokens: 32768 }, ["Total needed", "RTX 4090", "Smallest card"]],
   ["check_vram_fit", { params_b: 405, quant_bits: 16, context_tokens: 8192 }, ["Nothing in the list fits"]],

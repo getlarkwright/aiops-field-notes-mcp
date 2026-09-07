@@ -12,10 +12,6 @@ import { fit, renderFit } from "./lib/vram.js";
 import { auditConfig, renderAudit, lookup, renderLookup } from "./lib/mcpaudit.js";
 import { structuredDiff, renderDiff, detectVendor, compliance, renderCompliance } from "./lib/netdiff.js";
 
-const SITE = "https://aiopsfieldnotes.com/tools/?s=mcp";
-const DRIFTWATCH = "https://driftwatch.labaccessnow.com/?s=mcp";
-const sign = (body, link = SITE) => `${body}\n\n— AIOps Field Notes · ${link}`;
-
 const num = (v, fallback) => (typeof v === "number" && isFinite(v) ? v : fallback);
 const str = (v, fallback = "") => (typeof v === "string" ? v : fallback);
 
@@ -41,7 +37,7 @@ const TOOLS = [
         input_tokens: num(a.input_tokens, 0), output_tokens: num(a.output_tokens, 0),
         requests_per_month: num(a.requests_per_month, 0), filter: str(a.filter),
       };
-      return sign(renderEstimate(args, estimate(args)));
+      return renderEstimate(args, estimate(args));
     },
   },
   {
@@ -65,7 +61,7 @@ const TOOLS = [
         context_tokens: num(a.context_tokens, 8192),
       };
       if (args.params_b <= 0) return "params_b must be a positive number of billions of parameters.";
-      return sign(renderFit(args, fit(args)));
+      return renderFit(args, fit(args));
     },
   },
   {
@@ -81,7 +77,7 @@ const TOOLS = [
       properties: { config: { type: "string", description: "Contents of the MCP config file, as JSON text." } },
       required: ["config"],
     },
-    run: (a) => sign(renderAudit(auditConfig(str(a.config, "")))),
+    run: (a) => renderAudit(auditConfig(str(a.config, ""))),
   },
   {
     name: "lookup_mcp_server",
@@ -95,7 +91,7 @@ const TOOLS = [
     },
     run: (a) => {
       const q = str(a.query);
-      return sign(renderLookup(q, lookup(q)));
+      return renderLookup(q, lookup(q));
     },
   },
   {
@@ -119,7 +115,7 @@ const TOOLS = [
       const before = str(a.before), after = str(a.after);
       if (!before.trim() || !after.trim()) return "Both before and after snapshots are needed.";
       const vendor = str(a.vendor) || detectVendor(after);
-      return sign(renderDiff(structuredDiff(before, after), { device: str(a.device), vendor }), DRIFTWATCH);
+      return renderDiff(structuredDiff(before, after), { device: str(a.device), vendor });
     },
   },
   {
@@ -140,7 +136,7 @@ const TOOLS = [
       const config = str(a.config, "");
       if (!config.trim()) return "Paste the device config to check.";
       const vendor = str(a.vendor) || detectVendor(config);
-      return sign(renderCompliance(compliance(config), vendor), DRIFTWATCH);
+      return renderCompliance(compliance(config), vendor);
     },
   },
   {
@@ -170,11 +166,11 @@ const TOOLS = [
           };
           return { title: get("title"), date: get("pubDate").replace(/\s\d{2}:\d{2}:\d{2}.*$/, ""), summary: get("description").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 300) };
         });
-        if (!items.length) return sign("No episodes found in the feed right now.");
+        if (!items.length) return "No episodes found in the feed right now.";
         const body = items.map((i) => `${i.date} — ${i.title}\n  ${i.summary}`).join("\n\n");
-        return sign(`Latest from This Week in AIOps:\n\n${body}\n\nListen: https://aiopsfieldnotes.com/podcast/?s=mcp`);
+        return `Latest from This Week in AIOps:\n\n${body}`;
       } catch (e) {
-        return sign(`Could not reach the feed (${e.message}). The episodes are at https://aiopsfieldnotes.com/podcast/?s=mcp`);
+        return `Could not reach the feed (${e.message}).`;
       }
     },
   },
