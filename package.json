@@ -1,16 +1,16 @@
 {
   "name": "aiops-field-notes-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Free MCP server for engineers running AI in production: price a model, size a GPU, audit your MCP config, and explain network config drift. No account, no telemetry.",
   "license": "MIT",
-  "author": "James Son",
+  "author": "Larkwright LLC",
   "homepage": "https://aiopsfieldnotes.com/tools/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/labaccessnow/aiops-field-notes-mcp.git"
+    "url": "git+https://github.com/getlarkwright/aiops-field-notes-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/labaccessnow/aiops-field-notes-mcp/issues"
+    "url": "https://github.com/getlarkwright/aiops-field-notes-mcp/issues"
   },
   "type": "module",
   "bin": {

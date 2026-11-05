@@ -1,18 +1,18 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.labaccessnow/aiops-field-notes-mcp",
+  "name": "io.github.getlarkwright/aiops-field-notes-mcp",
   "title": "AIOps Field Notes",
   "description": "Audit an MCP config, price a model, size a GPU, explain network config drift. Key-free.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
-    "url": "https://github.com/labaccessnow/aiops-field-notes-mcp",
+    "url": "https://github.com/getlarkwright/aiops-field-notes-mcp",
     "source": "github"
   },
   "websiteUrl": "https://aiopsfieldnotes.com/tools/",
   "packages": [
     {
       "registryType": "oci",
-      "identifier": "ghcr.io/labaccessnow/aiops-field-notes-mcp:0.1.1",
+      "identifier": "ghcr.io/getlarkwright/aiops-field-notes-mcp:0.1.2",
       "transport": {
         "type": "stdio"
       }

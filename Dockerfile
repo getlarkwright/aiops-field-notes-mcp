@@ -1,8 +1,8 @@
 # Minimal image for clients that prefer to run the server in a container.
 FROM node:22-alpine
 
-LABEL io.modelcontextprotocol.server.name="io.github.labaccessnow/aiops-field-notes-mcp"
-LABEL org.opencontainers.image.source="https://github.com/labaccessnow/aiops-field-notes-mcp"
+LABEL io.modelcontextprotocol.server.name="io.github.getlarkwright/aiops-field-notes-mcp"
+LABEL org.opencontainers.image.source="https://github.com/getlarkwright/aiops-field-notes-mcp"
 LABEL org.opencontainers.image.licenses="MIT"
 
 WORKDIR /app

@@ -13,7 +13,7 @@ Pin the version — see `audit_mcp_config` for why.
 **Claude Code**
 
 ```
-claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes-mcp#v0.1.1
+claude mcp add aiops-field-notes -- npx -y github:getlarkwright/aiops-field-notes-mcp#v0.1.2
 ```
 
 **Claude Desktop, Cursor, or any client with a JSON config**
@@ -23,7 +23,7 @@ claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes
   "mcpServers": {
     "aiops-field-notes": {
       "command": "npx",
-      "args": ["-y", "github:labaccessnow/aiops-field-notes-mcp#v0.1.1"]
+      "args": ["-y", "github:getlarkwright/aiops-field-notes-mcp#v0.1.2"]
     }
   }
 }
@@ -36,14 +36,14 @@ claude mcp add aiops-field-notes -- npx -y github:labaccessnow/aiops-field-notes
   "mcpServers": {
     "aiops-field-notes": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "ghcr.io/labaccessnow/aiops-field-notes-mcp:0.1.1"]
+      "args": ["run", "-i", "--rm", "ghcr.io/getlarkwright/aiops-field-notes-mcp:0.1.2"]
     }
   }
 }
 ```
 
 Node 18 or newer for the npx route; nothing else to configure either way. The server is also in the
-official MCP registry as `io.github.labaccessnow/aiops-field-notes-mcp`.
+official MCP registry as `io.github.getlarkwright/aiops-field-notes-mcp`.
 
 ## Tools
 
@@ -117,5 +117,5 @@ no scheduler. That is deliberate: the rules are the useful part, and they work f
 
 ## Licence
 
-MIT. Written by James Son — network, security, and automation engineer — and tested in a live
+MIT © Larkwright LLC. Written by James Son — network, security, and automation engineer — and tested in a live
 multi-vendor lab. Contributions and corrections welcome.

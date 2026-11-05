@@ -177,7 +177,7 @@ const TOOLS = [
 ];
 
 const server = new Server(
-  { name: "aiops-field-notes", version: "0.1.0" },
+  { name: "aiops-field-notes", version: "0.1.2" },
   { capabilities: { tools: {} } }
 );
 
